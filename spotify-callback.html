@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Garderob. - Spotify</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f8f9fa;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px}
+.card{background:#fff;border-radius:20px;padding:40px;text-align:center;max-width:360px;width:100%;box-shadow:0 4px 24px rgba(0,0,0,0.08)}
+.icon{font-size:48px;margin-bottom:16px}
+h1{font-size:20px;font-weight:700;color:#1a1a2e;margin-bottom:8px}
+p{font-size:14px;color:#666;margin-bottom:24px;line-height:1.5}
+.btn{display:inline-block;background:#1DB954;color:#fff;font-size:16px;font-weight:600;padding:14px 32px;border-radius:12px;text-decoration:none;border:none;cursor:pointer}
+.btn:active{opacity:0.8}
+.error{color:#e74c3c;font-size:13px;margin-top:12px;display:none}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="icon">👗</div>
+  <h1>Kopplar Spotify...</h1>
+  <p>Du skickas tillbaka till Garderob.</p>
+  <a id="openBtn" class="btn" style="display:none">Oppna Garderob.</a>
+  <p id="error" class="error"></p>
+</div>
+<script>
+(function() {
+  var params = new URLSearchParams(window.location.search);
+  var code = params.get('code');
+  var error = params.get('error');
+  var state = params.get('state');
+
+  if (error) {
+    document.querySelector('h1').textContent = 'Fel';
+    document.querySelector('p').textContent = error;
+    return;
+  }
+
+  if (code) {
+    // Build the deep link URL
+    var deepLink = 'garderob://spotify-callback?code=' + encodeURIComponent(code);
+    if (state) deepLink += '&state=' + encodeURIComponent(state);
+
+    // Try to open the app immediately
+    window.location.href = deepLink;
+
+    // Show manual button after a short delay as fallback
+    setTimeout(function() {
+      var btn = document.getElementById('openBtn');
+      btn.href = deepLink;
+      btn.style.display = 'inline-block';
+      document.querySelector('p').textContent = 'Tryck pa knappen om appen inte oppnades automatiskt.';
+    }, 1500);
+  } else {
+    document.querySelector('h1').textContent = 'Fel';
+    document.querySelector('p').textContent = 'Ingen kod mottagen fran Spotify.';
+  }
+})();
+</script>
+</body>
+</html>
