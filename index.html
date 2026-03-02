@@ -3,51 +3,174 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="apple-itunes-app" content="app-id=6759000874">
   <title>Garderob. — Din smarta digitala garderob</title>
   <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: #f8f9fa;
-      color: #111;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      background: #09090b;
+      color: #fafafa;
       min-height: 100vh;
-      margin: 0;
+      overflow-x: hidden;
+    }
+
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 60px 24px 40px;
       text-align: center;
+      position: relative;
     }
-    .container {
-      max-width: 400px;
-      padding: 40px 24px;
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(99,102,241,0.15) 0%, transparent 70%);
+      pointer-events: none;
     }
+
+    .app-icon {
+      width: 96px;
+      height: 96px;
+      border-radius: 22px;
+      margin-bottom: 32px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+      position: relative;
+      z-index: 1;
+    }
+
     h1 {
-      font-size: 32px;
-      font-weight: 700;
-      margin-bottom: 8px;
+      font-size: 48px;
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      margin-bottom: 12px;
+      position: relative;
+      z-index: 1;
     }
-    p {
+
+    .tagline {
+      font-size: 18px;
+      color: #a1a1aa;
+      margin-bottom: 12px;
+      line-height: 1.5;
+      max-width: 360px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .description {
       font-size: 15px;
-      color: #6b7280;
-      margin-bottom: 24px;
+      color: #71717a;
       line-height: 1.6;
+      max-width: 380px;
+      margin-bottom: 36px;
+      position: relative;
+      z-index: 1;
     }
-    .links a {
-      display: inline-block;
-      font-size: 14px;
-      color: #111;
+
+    .app-store-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #fafafa;
+      color: #09090b;
+      text-decoration: none;
+      padding: 14px 28px;
+      border-radius: 14px;
+      font-size: 16px;
+      font-weight: 600;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      position: relative;
+      z-index: 1;
+    }
+    .app-store-btn:hover {
+      transform: scale(1.03);
+      box-shadow: 0 8px 24px rgba(255,255,255,0.1);
+    }
+    .app-store-btn:active { transform: scale(0.97); }
+
+    .app-store-btn svg { flex-shrink: 0; }
+
+    .features {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 40px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .feature-pill {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #a1a1aa;
+      padding: 8px 16px;
+      border-radius: 100px;
+      font-size: 13px;
       font-weight: 500;
-      margin: 0 12px;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .footer {
+      text-align: center;
+      padding: 24px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .footer a {
+      font-size: 14px;
+      color: #71717a;
+      text-decoration: none;
+      margin: 0 16px;
+      transition: color 0.15s ease;
+    }
+    .footer a:hover { color: #fafafa; }
+
+    @media (max-width: 480px) {
+      h1 { font-size: 36px; }
+      .tagline { font-size: 16px; }
+      .features { gap: 8px; }
+      .feature-pill { font-size: 12px; padding: 6px 12px; }
     }
   </style>
 </head>
 <body>
-  <div class="container">
+  <section class="hero">
+    <img class="app-icon" src="icon.png" alt="Garderob app icon">
     <h1>Garderob.</h1>
-    <p>Din smarta digitala garderob. Organisera kläder, planera outfits och få klädförslag baserat på vädret.</p>
-    <div class="links">
-      <a href="support.html">Support</a>
-      <a href="privacy-policy.html">Privacy Policy</a>
+    <p class="tagline">Din smarta digitala garderob</p>
+    <p class="description">Organisera kläder, planera outfits och scanna plagg med AI. Synka mellan enheter.</p>
+
+    <a href="https://apps.apple.com/app/id6759000874" class="app-store-btn">
+      <svg width="20" height="24" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M17.05 20.28c-.98.95-2.05.88-3.08.4-1.09-.5-2.08-.48-3.24 0-1.44.62-2.2.44-3.06-.4C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+      </svg>
+      Ladda ner gratis
+    </a>
+
+    <div class="features">
+      <span class="feature-pill">AI Scan</span>
+      <span class="feature-pill">Outfit-planerare</span>
+      <span class="feature-pill">Molnsynk</span>
+      <span class="feature-pill">8 teman</span>
+      <span class="feature-pill">Spotify</span>
     </div>
-  </div>
+  </section>
+
+  <footer class="footer">
+    <a href="support.html">Support</a>
+    <a href="privacy-policy.html">Integritetspolicy</a>
+  </footer>
 </body>
 </html>
