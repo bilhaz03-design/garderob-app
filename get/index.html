@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta name="apple-itunes-app" content="app-id=6759000874">
+  <title>Ladda ner Garderob.</title>
+  <meta property="og:title" content="Garderob. — Din smarta digitala garderob">
+  <meta property="og:description" content="Organisera kläder, planera outfits och scanna plagg med AI.">
+  <meta property="og:image" content="https://bilhaz03-design.github.io/garderob-app/icon.png">
+  <meta property="og:url" content="https://bilhaz03-design.github.io/garderob-app/get/">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+      background: #09090b;
+      color: #fafafa;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 24px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .glow {
+      position: fixed;
+      top: -30%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(99,102,241,0.2) 0%, transparent 70%);
+      pointer-events: none;
+      animation: pulse 4s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.6; transform: translateX(-50%) scale(1); }
+      50% { opacity: 1; transform: translateX(-50%) scale(1.1); }
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      animation: fadeUp 0.6s ease-out;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .app-icon {
+      width: 96px;
+      height: 96px;
+      border-radius: 22px;
+      box-shadow: 0 8px 40px rgba(99,102,241,0.3);
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      font-size: 42px;
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      margin-bottom: 8px;
+    }
+
+    .tagline {
+      font-size: 17px;
+      color: #a1a1aa;
+      margin-bottom: 8px;
+    }
+
+    .description {
+      font-size: 14px;
+      color: #71717a;
+      line-height: 1.5;
+      max-width: 300px;
+      margin-bottom: 32px;
+    }
+
+    .download-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: #fafafa;
+      color: #09090b;
+      text-decoration: none;
+      padding: 16px 40px;
+      border-radius: 16px;
+      font-size: 17px;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 4px 24px rgba(255,255,255,0.1);
+      margin-bottom: 20px;
+    }
+    .download-btn:active { transform: scale(0.96); }
+    .download-btn svg { flex-shrink: 0; }
+
+    .redirect-text {
+      font-size: 13px;
+      color: #52525b;
+      animation: fadeIn 1s ease-out 0.8s both;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .features {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 32px;
+    }
+    .pill {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #a1a1aa;
+      padding: 6px 14px;
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <div class="glow"></div>
+  <div class="content">
+    <img class="app-icon" src="../icon.png" alt="Garderob.">
+    <h1>Garderob.</h1>
+    <p class="tagline">Din smarta digitala garderob</p>
+    <p class="description">Organisera kläder, planera outfits och scanna plagg med AI. Synka mellan enheter.</p>
+
+    <a href="https://apps.apple.com/app/id6759000874" class="download-btn" id="dl-btn">
+      <svg width="20" height="24" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M17.05 20.28c-.98.95-2.05.88-3.08.4-1.09-.5-2.08-.48-3.24 0-1.44.62-2.2.44-3.06-.4C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+      </svg>
+      Ladda ner gratis
+    </a>
+    <p class="redirect-text">Öppnar App Store automatiskt…</p>
+
+    <div class="features">
+      <span class="pill">AI Scan</span>
+      <span class="pill">Outfit-planerare</span>
+      <span class="pill">Molnsynk</span>
+      <span class="pill">8 teman</span>
+    </div>
+  </div>
+
+  <script>
+    // Auto-redirect to App Store after 2 seconds
+    setTimeout(function() {
+      window.location.href = 'https://apps.apple.com/app/id6759000874';
+    }, 2000);
+  </script>
+</body>
+</html>
