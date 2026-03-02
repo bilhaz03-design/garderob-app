@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta name="apple-itunes-app" content="app-id=6759000874">
+  <title>E-post bekräftad — Garderob.</title>
+  <meta property="og:title" content="Garderob. — E-post bekräftad">
+  <meta property="og:description" content="Ditt konto är redo. Öppna appen och logga in.">
+  <meta property="og:image" content="https://bilhaz03-design.github.io/garderob-app/icon.png">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+      background: #09090b;
+      color: #fafafa;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 24px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .glow {
+      position: fixed;
+      top: -30%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(34,197,94,0.2) 0%, transparent 70%);
+      pointer-events: none;
+      animation: pulse 4s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.6; transform: translateX(-50%) scale(1); }
+      50% { opacity: 1; transform: translateX(-50%) scale(1.1); }
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      animation: fadeUp 0.6s ease-out;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .checkmark {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: rgba(34,197,94,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+    .checkmark svg {
+      width: 36px;
+      height: 36px;
+      color: #22c55e;
+      animation: scaleIn 0.4s cubic-bezier(0.32, 0.72, 0, 1) 0.3s both;
+    }
+    @keyframes scaleIn {
+      from { opacity: 0; transform: scale(0.5); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    h1 {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      font-size: 16px;
+      color: #a1a1aa;
+      margin-bottom: 32px;
+      line-height: 1.5;
+      max-width: 300px;
+    }
+
+    .open-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: #fafafa;
+      color: #09090b;
+      text-decoration: none;
+      padding: 16px 40px;
+      border-radius: 16px;
+      font-size: 17px;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 4px 24px rgba(255,255,255,0.1);
+      margin-bottom: 16px;
+    }
+    .open-btn:active { transform: scale(0.96); }
+
+    .fallback {
+      font-size: 14px;
+      color: #52525b;
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+    .fallback:hover { color: #a1a1aa; }
+  </style>
+</head>
+<body>
+  <div class="glow"></div>
+  <div class="content">
+    <div class="checkmark">
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
+      </svg>
+    </div>
+    <h1>E-post bekräftad!</h1>
+    <p class="subtitle">Ditt konto är redo. Öppna appen och logga in med din e-post och lösenord.</p>
+
+    <a href="garderob://" class="open-btn" id="open-btn">Öppna Garderob</a>
+    <a href="https://apps.apple.com/app/id6759000874" class="fallback">Har du inte appen? Ladda ner</a>
+  </div>
+</body>
+</html>
