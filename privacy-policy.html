@@ -227,7 +227,7 @@
     <!-- ==================== SWEDISH ==================== -->
     <div id="policy-sv" class="policy-section active">
 
-      <div class="effective-date">Giltig fr.o.m. februari 2025</div>
+      <div class="effective-date">Giltig fr.o.m. mars 2026</div>
 
       <div class="card">
         <div class="card-header">
@@ -235,10 +235,10 @@
           <h2>Introduktion</h2>
         </div>
         <p>
-          Garderob. ("appen") är en garderobs- och outfit-hanteringsapp som hjälper dig att organisera dina kläder och planera outfits baserat på väder. Din integritet är viktig för oss och denna policy förklarar hur appen hanterar data.
+          Garderob. ("appen") är en garderobs- och outfit-hanteringsapp som hjälper dig att organisera dina kläder och planera outfits. Din integritet är viktig för oss och denna policy förklarar hur appen hanterar data.
         </p>
         <div class="highlight-box">
-          <p>Garderob. samlar inte in och lagrar inte personuppgifter på några servrar. All din garderobsdata stannar på din enhet.</p>
+          <p>Garderob. lagrar din garderobsdata lokalt på din enhet. Om du skapar ett konto synkroniseras den även till molnet så att du kan använda den på flera enheter.</p>
         </div>
       </div>
 
@@ -248,25 +248,48 @@
           <h2>Data som lagras lokalt</h2>
         </div>
         <p>
-          Appen lagrar följande information lokalt på din enhet med hjälp av webbläsarens localStorage:
+          Appen lagrar följande information lokalt på din enhet:
         </p>
         <ul>
-          <li>Dina garderobobjekt (namn, kategori, färg, säsong, etc.)</li>
+          <li>Dina garderobobjekt (namn, kategori, färg, säsong, bilder)</li>
           <li>Dina sparade outfits och kombinationer</li>
           <li>Appinställningar (språk, tema, vald stad för väder)</li>
         </ul>
         <p>
-          Denna data lagras enbart på din enhet och synkroniseras inte till några externa servrar eller molntjänster. Om du avinstallerar appen eller rensar webbläsardata kommer denna information att raderas.
+          Denna data lagras på din enhet med hjälp av localStorage och IndexedDB. Om du avinstallerar appen eller rensar appdata utan att ha ett konto kommer denna information att raderas.
         </p>
       </div>
 
       <div class="card">
         <div class="card-header">
           <span class="section-number">3</span>
+          <h2>Konton och molnsynkronisering</h2>
+        </div>
+        <p>
+          Du kan valfritt skapa ett konto med Apple, Google eller e-post och lösenord. Kontot möjliggör molnsynkronisering av din garderobsdata.
+        </p>
+        <h3>Vad som lagras i molnet</h3>
+        <ul>
+          <li>Dina garderobobjekt, outfits och inställningar</li>
+          <li>Bilder på dina klädesplagg</li>
+          <li>Din e-postadress (för autentisering)</li>
+        </ul>
+        <h3>Var data lagras</h3>
+        <p>
+          Molndata lagras hos <strong>Supabase</strong> (baserat på PostgreSQL) med Row Level Security — din data är isolerad och kan bara nås av dig. Bilder lagras i Supabase Storage.
+        </p>
+        <p>
+          Om du loggar in med Apple eller Google delar dessa tjänster din e-postadress med appen för autentisering. Ingen annan information hämtas.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="section-number">4</span>
           <h2>AI-skanning (OpenAI API)</h2>
         </div>
         <p>
-          Appen erbjuder en AI-skanningsfunktion (premiumfunktion) som låter dig ta ett foto av ett klädesplagg för att automatiskt identifiera det.
+          Appen erbjuder en AI-skanningsfunktion som låter dig ta ett foto av ett klädesplagg för att automatiskt identifiera det.
         </p>
         <h3>Vad som skickas</h3>
         <ul>
@@ -278,17 +301,17 @@
           <li>Fotot är inte kopplat till din identitet</li>
         </ul>
         <p>
-          OpenAI behandlar bilden för att identifiera plagget och returnerar en beskrivning. Bilden lagras inte permanent av oss. Se OpenAI:s integritetspolicy på <a href="https://openai.com/privacy" target="_blank" rel="noopener" style="color: #111; font-weight: 500;">openai.com/privacy</a> för mer information.
+          Se OpenAI:s integritetspolicy på <a href="https://openai.com/privacy" target="_blank" rel="noopener" style="color: #111; font-weight: 500;">openai.com/privacy</a> för mer information.
         </p>
       </div>
 
       <div class="card">
         <div class="card-header">
-          <span class="section-number">4</span>
+          <span class="section-number">5</span>
           <h2>Väderdata (Open-Meteo API)</h2>
         </div>
         <p>
-          Appen använder <strong>Open-Meteo API</strong>, en gratis vädertjänst med öppen källkod, för att hämta väderinformation baserat på det stadsnamn du anger.
+          Appen använder <strong>Open-Meteo API</strong>, en gratis vädertjänst med öppen källkod, för att hämta väderinformation.
         </p>
         <h3>Vad som skickas</h3>
         <ul>
@@ -298,38 +321,47 @@
         <ul>
           <li>Din exakta GPS-position</li>
           <li>Enhetsidentifierare eller personuppgifter</li>
-          <li>Ingen API-nyckel används eller krävs</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="section-number">5</span>
-          <h2>Röstigenkänning</h2>
-        </div>
-        <p>
-          Appen erbjuder en valfri röstigenkänningsfunktion (Web Speech API) för att lägga till garderobobjekt med rösten.
-        </p>
-        <ul>
-          <li>Röstigenkänning behandlas av din webbläsare eller enhets inbyggda taltjänst</li>
-          <li>Appen lagrar inte eller skickar inte röstinspelningar</li>
-          <li>Funktionen är helt valfri och kräver ditt uttryckliga tillstånd</li>
         </ul>
       </div>
 
       <div class="card">
         <div class="card-header">
           <span class="section-number">6</span>
-          <h2>Inga användarkonton</h2>
+          <h2>Spotify-integration</h2>
         </div>
         <p>
-          Garderob. kräver ingen registrering, inloggning eller skapande av användarkonto. Ingen e-postadress, inget lösenord och ingen personlig information samlas in.
+          Appen kan visa vilken låt som spelas just nu via Spotify. Integrationen läser enbart av vad som spelas — appen skickar ingen data till Spotify och kontrollerar inte uppspelning.
         </p>
       </div>
 
       <div class="card">
         <div class="card-header">
           <span class="section-number">7</span>
+          <h2>Röstigenkänning</h2>
+        </div>
+        <p>
+          Appen erbjuder en valfri röstigenkänningsfunktion för att lägga till klädesplagg med rösten.
+        </p>
+        <ul>
+          <li>Röstigenkänning behandlas av din enhets inbyggda taltjänst</li>
+          <li>Appen lagrar inte eller skickar inte röstinspelningar</li>
+          <li>Funktionen kräver ditt uttryckliga tillstånd</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="section-number">8</span>
+          <h2>Notiser</h2>
+        </div>
+        <p>
+          Appen kan skicka lokala notiser (morgonpåminnelser, outfit-förslag). Alla notiser schemaläggs lokalt på din enhet — ingen data skickas till externa servrar för notiser.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="section-number">9</span>
           <h2>Ingen analys eller spårning</h2>
         </div>
         <p>
@@ -339,59 +371,60 @@
 
       <div class="card">
         <div class="card-header">
-          <span class="section-number">8</span>
+          <span class="section-number">10</span>
           <h2>Tredjepartstjänster</h2>
         </div>
         <p>
           De externa tjänster appen kommunicerar med är:
         </p>
         <ul>
-          <li><strong>OpenAI API</strong> — för AI-skanning av klädesplagg (premiumfunktion)</li>
-          <li><strong>Open-Meteo API</strong> — för väderdata (open source, ingen API-nyckel, inget konto krävs)</li>
+          <li><strong>Supabase</strong> — autentisering och molnsynkronisering (valfritt, kräver konto)</li>
+          <li><strong>OpenAI API</strong> — AI-skanning av klädesplagg</li>
+          <li><strong>Open-Meteo API</strong> — väderdata (open source, inget konto krävs)</li>
+          <li><strong>Apple Sign-In</strong> — autentisering (valfritt)</li>
+          <li><strong>Google Sign-In</strong> — autentisering (valfritt)</li>
+          <li><strong>Spotify</strong> — Now Playing-visning (valfritt)</li>
         </ul>
-        <p>
-          Appen använder inga andra tredjepartstjänster, SDK:er eller externa bibliotek som samlar in data.
-        </p>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="section-number">9</span>
-          <h2>Dina rättigheter</h2>
-        </div>
-        <p>
-          Eftersom all data lagras lokalt på din enhet har du full kontroll:
-        </p>
-        <ul>
-          <li><strong>Visa:</strong> All din data är synlig direkt i appen</li>
-          <li><strong>Radera:</strong> Du kan radera enskilda objekt eller all data genom appens inställningar</li>
-          <li><strong>Exportera:</strong> Din data lagras i webbläsarens localStorage och kan inspekteras via webbläsarens utvecklarverktyg</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="section-number">10</span>
-          <h2>Barns integritet</h2>
-        </div>
-        <p>
-          Appen samlar inte medvetet in information från barn. Eftersom ingen personlig data samlas in finns det inga särskilda risker för minderåriga användare.
-        </p>
       </div>
 
       <div class="card">
         <div class="card-header">
           <span class="section-number">11</span>
-          <h2>Ändringar i denna policy</h2>
+          <h2>Dina rättigheter</h2>
         </div>
         <p>
-          Vi kan uppdatera denna integritetspolicy från tid till annan. Ändringar publiceras på denna sida med uppdaterat datum. Vi rekommenderar att du granskar denna policy regelbundet.
+          Du har full kontroll över din data:
         </p>
+        <ul>
+          <li><strong>Visa:</strong> All din data är synlig direkt i appen</li>
+          <li><strong>Radera:</strong> Du kan radera enskilda objekt eller all data genom appens inställningar</li>
+          <li><strong>Radera konto:</strong> Du kan logga ut och radera ditt konto — all molndata tas bort</li>
+        </ul>
       </div>
 
       <div class="card">
         <div class="card-header">
           <span class="section-number">12</span>
+          <h2>Barns integritet</h2>
+        </div>
+        <p>
+          Appen samlar inte medvetet in information från barn under 13 år.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="section-number">13</span>
+          <h2>Ändringar i denna policy</h2>
+        </div>
+        <p>
+          Vi kan uppdatera denna integritetspolicy från tid till annan. Ändringar publiceras på denna sida med uppdaterat datum.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="section-number">14</span>
           <h2>Kontakt</h2>
         </div>
         <p>
@@ -408,7 +441,7 @@
     <!-- ==================== ENGLISH ==================== -->
     <div id="policy-en" class="policy-section">
 
-      <div class="effective-date">Effective as of February 2025</div>
+      <div class="effective-date">Effective as of March 2026</div>
 
       <div class="card">
         <div class="card-header">
@@ -416,10 +449,10 @@
           <h2>Introduction</h2>
         </div>
         <p>
-          Garderob. ("the app") is a wardrobe and outfit management app that helps you organize your clothing and plan outfits based on the weather. Your privacy is important to us, and this policy explains how the app handles data.
+          Garderob. ("the app") is a wardrobe and outfit management app that helps you organize your clothing and plan outfits. Your privacy is important to us, and this policy explains how the app handles data.
         </p>
         <div class="highlight-box">
-          <p>Garderob. does not collect or store personal data on any servers. All your wardrobe data stays on your device.</p>
+          <p>Garderob. stores your wardrobe data locally on your device. If you create an account, it's also synced to the cloud so you can use it across multiple devices.</p>
         </div>
       </div>
 
@@ -429,25 +462,48 @@
           <h2>Data Stored Locally</h2>
         </div>
         <p>
-          The app stores the following information locally on your device using the browser's localStorage:
+          The app stores the following information locally on your device:
         </p>
         <ul>
-          <li>Your wardrobe items (name, category, color, season, etc.)</li>
+          <li>Your wardrobe items (name, category, color, season, images)</li>
           <li>Your saved outfits and combinations</li>
           <li>App settings (language, theme, selected city for weather)</li>
         </ul>
         <p>
-          This data is stored exclusively on your device and is not synced to any external servers or cloud services. If you uninstall the app or clear your browser data, this information will be deleted.
+          This data is stored on your device using localStorage and IndexedDB. If you uninstall the app or clear app data without having an account, this information will be deleted.
         </p>
       </div>
 
       <div class="card">
         <div class="card-header">
           <span class="section-number">3</span>
+          <h2>Accounts and Cloud Sync</h2>
+        </div>
+        <p>
+          You can optionally create an account using Apple, Google, or email and password. An account enables cloud synchronization of your wardrobe data.
+        </p>
+        <h3>What is stored in the cloud</h3>
+        <ul>
+          <li>Your wardrobe items, outfits, and settings</li>
+          <li>Images of your clothing items</li>
+          <li>Your email address (for authentication)</li>
+        </ul>
+        <h3>Where data is stored</h3>
+        <p>
+          Cloud data is stored with <strong>Supabase</strong> (based on PostgreSQL) with Row Level Security — your data is isolated and can only be accessed by you. Images are stored in Supabase Storage.
+        </p>
+        <p>
+          If you sign in with Apple or Google, these services share your email address with the app for authentication. No other information is retrieved.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="section-number">4</span>
           <h2>AI Scanning (OpenAI API)</h2>
         </div>
         <p>
-          The app offers an AI scanning feature (premium feature) that lets you take a photo of a garment to automatically identify it.
+          The app offers an AI scanning feature that lets you take a photo of a garment to automatically identify it.
         </p>
         <h3>What is sent</h3>
         <ul>
@@ -459,17 +515,17 @@
           <li>The photo is not linked to your identity</li>
         </ul>
         <p>
-          OpenAI processes the image to identify the garment and returns a description. The image is not permanently stored by us. See OpenAI's privacy policy at <a href="https://openai.com/privacy" target="_blank" rel="noopener" style="color: #111; font-weight: 500;">openai.com/privacy</a> for more information.
+          See OpenAI's privacy policy at <a href="https://openai.com/privacy" target="_blank" rel="noopener" style="color: #111; font-weight: 500;">openai.com/privacy</a> for more information.
         </p>
       </div>
 
       <div class="card">
         <div class="card-header">
-          <span class="section-number">4</span>
+          <span class="section-number">5</span>
           <h2>Weather Data (Open-Meteo API)</h2>
         </div>
         <p>
-          The app uses the <strong>Open-Meteo API</strong>, a free and open-source weather service, to fetch weather information based on the city name you enter.
+          The app uses the <strong>Open-Meteo API</strong>, a free and open-source weather service, to fetch weather information.
         </p>
         <h3>What is sent</h3>
         <ul>
@@ -479,38 +535,47 @@
         <ul>
           <li>Your exact GPS location</li>
           <li>Device identifiers or personal information</li>
-          <li>No API key is used or required</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="section-number">5</span>
-          <h2>Voice Recognition</h2>
-        </div>
-        <p>
-          The app offers an optional voice recognition feature (Web Speech API) for adding wardrobe items by voice.
-        </p>
-        <ul>
-          <li>Voice recognition is processed by your browser or device's built-in speech service</li>
-          <li>The app does not store or transmit voice recordings</li>
-          <li>The feature is entirely optional and requires your explicit permission</li>
         </ul>
       </div>
 
       <div class="card">
         <div class="card-header">
           <span class="section-number">6</span>
-          <h2>No User Accounts</h2>
+          <h2>Spotify Integration</h2>
         </div>
         <p>
-          Garderob. does not require any registration, login, or user account creation. No email address, password, or personal information is collected.
+          The app can display the currently playing song via Spotify. The integration only reads what's playing — the app does not send any data to Spotify and does not control playback.
         </p>
       </div>
 
       <div class="card">
         <div class="card-header">
           <span class="section-number">7</span>
+          <h2>Voice Recognition</h2>
+        </div>
+        <p>
+          The app offers an optional voice recognition feature for adding clothing items by voice.
+        </p>
+        <ul>
+          <li>Voice recognition is processed by your device's built-in speech service</li>
+          <li>The app does not store or transmit voice recordings</li>
+          <li>The feature requires your explicit permission</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="section-number">8</span>
+          <h2>Notifications</h2>
+        </div>
+        <p>
+          The app can send local notifications (morning reminders, outfit suggestions). All notifications are scheduled locally on your device — no data is sent to external servers for notifications.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="section-number">9</span>
           <h2>No Analytics or Tracking</h2>
         </div>
         <p>
@@ -520,59 +585,60 @@
 
       <div class="card">
         <div class="card-header">
-          <span class="section-number">8</span>
+          <span class="section-number">10</span>
           <h2>Third-Party Services</h2>
         </div>
         <p>
           The external services the app communicates with are:
         </p>
         <ul>
-          <li><strong>OpenAI API</strong> — for AI garment scanning (premium feature)</li>
-          <li><strong>Open-Meteo API</strong> — for weather data (open source, no API key, no account required)</li>
+          <li><strong>Supabase</strong> — authentication and cloud sync (optional, requires account)</li>
+          <li><strong>OpenAI API</strong> — AI garment scanning</li>
+          <li><strong>Open-Meteo API</strong> — weather data (open source, no account required)</li>
+          <li><strong>Apple Sign-In</strong> — authentication (optional)</li>
+          <li><strong>Google Sign-In</strong> — authentication (optional)</li>
+          <li><strong>Spotify</strong> — Now Playing display (optional)</li>
         </ul>
-        <p>
-          The app does not use any other third-party services, SDKs, or external libraries that collect data.
-        </p>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="section-number">9</span>
-          <h2>Your Rights</h2>
-        </div>
-        <p>
-          Since all data is stored locally on your device, you have full control:
-        </p>
-        <ul>
-          <li><strong>View:</strong> All your data is visible directly in the app</li>
-          <li><strong>Delete:</strong> You can delete individual items or all data through the app's settings</li>
-          <li><strong>Export:</strong> Your data is stored in the browser's localStorage and can be inspected via browser developer tools</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="section-number">10</span>
-          <h2>Children's Privacy</h2>
-        </div>
-        <p>
-          The app does not knowingly collect information from children. Since no personal data is collected, there are no specific risks for underage users.
-        </p>
       </div>
 
       <div class="card">
         <div class="card-header">
           <span class="section-number">11</span>
-          <h2>Changes to This Policy</h2>
+          <h2>Your Rights</h2>
         </div>
         <p>
-          We may update this privacy policy from time to time. Changes will be posted on this page with an updated date. We encourage you to review this policy periodically.
+          You have full control over your data:
         </p>
+        <ul>
+          <li><strong>View:</strong> All your data is visible directly in the app</li>
+          <li><strong>Delete:</strong> You can delete individual items or all data through the app's settings</li>
+          <li><strong>Delete account:</strong> You can sign out and delete your account — all cloud data will be removed</li>
+        </ul>
       </div>
 
       <div class="card">
         <div class="card-header">
           <span class="section-number">12</span>
+          <h2>Children's Privacy</h2>
+        </div>
+        <p>
+          The app does not knowingly collect information from children under 13.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="section-number">13</span>
+          <h2>Changes to This Policy</h2>
+        </div>
+        <p>
+          We may update this privacy policy from time to time. Changes will be posted on this page with an updated date.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="section-number">14</span>
           <h2>Contact</h2>
         </div>
         <p>
@@ -587,7 +653,7 @@
     </div>
 
     <div class="footer-note">
-      &copy; 2025 Bilel Hazami. Garderob.
+      &copy; 2026 Bilel Hazami. Garderob.
     </div>
 
   </div>
